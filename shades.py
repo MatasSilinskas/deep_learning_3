@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 
 # Load the model built in the previous step
-my_model = load_my_CNN_model('my_model_50')
-my_model2 = load_my_CNN_model('my_model_100')
+my_model = load_my_CNN_model('my_model_10')
+my_model2 = load_my_CNN_model('my_model_200')
 
 # Face cascade to detect faces
 face_cascade = cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.xml')
@@ -76,7 +76,7 @@ while True:
                 continue
 
     if len(faces) == 0:
-        cv2.imshow("100 epochs", frame)
+        cv2.imshow("10 epochs", frame)
         cv2.imshow("200 epochs", frame)
     for (x, y, w, h) in faces:
 
@@ -93,7 +93,7 @@ while True:
         face_resized_copy = face_resized.copy()
         face_resized = face_resized.reshape(1, 96, 96, 1)
 
-        showModel(face_resized, my_model, '100 epochs')
+        showModel(face_resized, my_model, '10 epochs')
         showModel(face_resized, my_model2, '200 epochs')
 
     # If the 'q' key is pressed, stop the loop
